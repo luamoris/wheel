@@ -1,0 +1,353 @@
+* {
+   box-sizing: border-box;
+   scroll-behavior: smooth;
+   padding: 0;
+   margin: 0;
+   font-family: "Sometype Mono", sans-serif;
+
+   --color-1: #ff7c7c;
+   --color-2: #ff58ff;
+   --color-3: #8fe9a6;
+   --color-4: #4bbece;
+   --color-5: #fada70;
+}
+
+/* APP */
+
+body {
+   background-image:
+      radial-gradient(circle, rgba(255, 255, 255, 0.12) 2px, transparent 2px),
+      linear-gradient(-45deg, #15007f, #550AAD);
+   background-size: 20px 20px, cover;
+   background-repeat: repeat, no-repeat;
+   background-position: 0 0, center;
+   background-attachment: fixed;
+}
+
+
+
+.wrapper {
+   position: relative;
+   min-width: 320px;
+   min-height: 100%;
+}
+
+.app {
+   position: relative;
+   z-index: 100;
+   min-height: 100vh;
+   width: 100%;
+}
+
+.app-container {
+   margin: 0 auto;
+   padding: 30px 20px 20px 20px;
+   max-width: 1440px;
+   min-height: 100vh;
+}
+
+.content {
+   width: 100%;
+   height: calc(100vh - 50px);
+
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: start;
+}
+
+.box {
+   width: 100%;
+   max-width: 500px;
+   height: auto;
+   aspect-ratio: 1 / 1;
+
+   position: relative;
+}
+
+.pointer {
+   width: 30px;
+   height: 30px;
+   position: absolute;
+   z-index: 100;
+   top: 2px;
+   left: 50%;
+   transform: translateX(-50%) rotate(180deg);
+   pointer-events: none;
+   border-radius: 2px;
+}
+
+.pointer polygon {
+   fill: rgba(208, 147, 255, 1);
+}
+
+.title {
+   margin: 50px 0;
+   font-size: 50px;
+   font-weight: 800;
+   text-transform: uppercase;
+   color: rgba(255, 255, 255, 1);
+}
+
+@media (max-width: 560px) {
+   .title {
+      font-size: 40px;
+   }
+}
+
+@media (max-width: 440px) {
+   .title {
+      font-size: 28px;
+   }
+}
+
+/* GAME */
+
+.full {
+   width: 100%;
+   max-width: 500px;
+   height: auto;
+   aspect-ratio: 1 / 1;
+}
+
+#wheel {
+   overflow: visible;
+   filter: drop-shadow(0 0 20px rgba(255, 255, 255, .4));
+   box-shadow: 0 0 20px rgba(0, 0, 0, .4);
+   border-radius: 50%;
+}
+
+#wheel__bg-1 {
+   overflow: visible;
+   fill: url(#boxBgGradient);
+   /* fill-opacity: 0.2; */
+   filter: blur(4px);
+}
+
+#wheel__bg-2 {
+   fill: none;
+   stroke-width: 170px;
+   stroke: rgba(255, 255, 255, 1);
+}
+
+#wheel__bg-3 {
+   fill: rgba(255, 255, 255, 1);
+}
+
+#wheel__bg-4 {
+   fill: rgba(208, 147, 255, 1);
+}
+
+#wheel__bg-5 {
+   fill: rgba(255, 255, 255, 1);
+}
+
+#wheel__border-1 {
+   fill: none;
+   stroke-width: 2px;
+   stroke: rgba(208, 147, 255, 1);
+}
+
+.sector {
+   stroke-width: 6px;
+   stroke: rgba(255, 255, 255, 1);
+   fill: tomato;
+
+   /* центр колеса по горизонтали и вертикали */
+   transform-origin: 250px 250px;
+
+   /* Для SVG нужно указать, чтобы origin считался относительно содержимого */
+   transform-box: fill-box;
+}
+
+.sector.c1 {
+   fill: var(--color-1);
+}
+
+.sector.c2 {
+   fill: var(--color-2);
+}
+
+.sector.c3 {
+   fill: var(--color-3);
+}
+
+.sector.c4 {
+   fill: var(--color-4);
+}
+
+.sector.c5 {
+   fill: var(--color-5);
+}
+
+
+
+/* PERSONS */
+
+#persons {
+   overflow: hidden;
+   margin: 20px 0 50px 0;
+   padding: 20px;
+   max-width: 500px;
+   width: 100%;
+
+   border-radius: 10px;
+   border: 1px solid rgba(255, 255, 255, 0.5);
+   background-color: rgba(255, 255, 255, 0.2);
+   backdrop-filter: blur(4px);
+   -webkit-backdrop-filter: blur(4px);
+}
+
+.persons-list {
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+
+.person {
+   margin: 10px 0;
+   width: 100%;
+   height: 40px;
+
+   display: flex;
+   align-items: center;
+}
+
+.color {
+   width: 40px;
+   height: 40px;
+   border-radius: 6px;
+   border: 2px solid rgba(255, 255, 255, 0.5);
+   background-color: #ff58ff;
+   cursor: pointer;
+}
+
+label {
+   margin: 0 20px 0 10px;
+   font-size: 20px;
+   font-weight: 500;
+   text-transform: uppercase;
+   color: rgba(255, 255, 255, 1);
+}
+
+input {
+   margin: 0 10px 0 20px;
+   padding: 4px 6px;
+   width: 60px;
+   height: 30px;
+
+   font-size: 16px;
+   font-weight: 600;
+
+   border: 2px solid rgba(255, 255, 255, 1);
+   border-radius: 6px;
+   color: rgb(25, 59, 25);
+   box-shadow: 0 2px 0 rgb(55, 119, 55);
+}
+
+input:focus {
+   outline: none;
+   border: 2px solid rgb(106, 221, 106);
+}
+
+.button-add {
+   width: 50px;
+   height: 30px;
+
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   font-size: 20px;
+   font-weight: 600;
+
+   border-radius: 6px;
+   background-color: rgb(106, 221, 106);
+   cursor: pointer;
+   color: rgb(25, 59, 25);
+   box-shadow: 0 2px 0 rgb(55, 119, 55);
+}
+
+.button-add.disabled {
+   background-color: rgb(114, 161, 114);
+}
+
+.tikets {
+   flex: 1 1 auto;
+}
+
+.tikets-title {
+   font-size: 18px;
+   font-weight: 600;
+   text-transform: uppercase;
+}
+
+.tikets-count {
+   margin: 0 4px;
+   font-size: 18px;
+   font-weight: 600;
+   color: rgba(255, 255, 255, 1);
+}
+
+.footer {
+   margin-top: 20px;
+   width: 100%;
+
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.button-plus {
+   padding: 10px 16px;
+   font-size: 16px;
+   font-weight: 600;
+   text-transform: uppercase;
+   border-radius: 6px;
+   border: 1px solid rgba(255, 255, 255, 0.5);
+   color: rgba(255, 255, 255, 1);
+   background: radial-gradient(circle, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0.1) 100%);
+   background-color: rgba(106, 221, 106, .1);
+   transition: background-color 200ms ease-out;
+   cursor: pointer;
+}
+
+.button-plus:hover {
+   background-color: rgba(27, 240, 27, 0.2);
+}
+
+.color[data-color="1"] {
+   background-color: var(--color-1);
+}
+
+.color[data-color="3"] {
+   background-color: var(--color-3);
+}
+
+.color[data-color="4"] {
+   background-color: var(--color-4);
+}
+
+.color[data-color="5"] {
+   background-color: var(--color-5);
+}
+
+.timer {
+   margin-top: 40px;
+   max-width: 500px;
+   width: 100%;
+   height: 20px;
+
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+#time {
+   font-size: 24px;
+   font-weight: 600;
+   color: rgba(255, 255, 255, 1);
+   cursor: pointer;
+}

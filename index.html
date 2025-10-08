@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="msapplication-tap-highlight" content="no">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <title>Fortune Wheel</title>
+
+</head>
+
+<body>
+
+   <div id="wrapper">
+      <div class="app">
+         <div class="app-container">
+
+            <div class="content">
+
+               <h1 class="title">Fortune Wheel</h1>
+
+               <div class="box">
+
+                  <!-- Треугольник -->
+                  <svg class="pointer" width="40" height="40" viewBox="0 0 40 40">
+                     <polygon points="20,0 0,40 40,40" />
+                  </svg>
+
+                  <!-- Колесо -->
+                  <svg id="wheel" class="full" width="500" height="500" viewBox="0 0 500 500">
+
+                     <!-- Свойства -->
+                     <defs>
+                        <!-- Градиент -->
+                        <radialGradient id="boxBgGradient" cx="50%" cy="50%" r="50%">
+                           <stop offset="95%" stop-color="#fff" />
+                           <stop offset="100%" stop-color="#AA46DA" />
+                        </radialGradient>
+                     </defs>
+
+                     <!-- Круг 1 -->
+                     <circle id="wheel__bg-1" cx="250" cy="250" r="250" />
+
+                     <!-- Граница -->
+                     <circle id="wheel__border-1" cx="250" cy="250" r="248" />
+
+                     <!-- Круг 2 -->
+                     <circle id="wheel__bg-2" cx="250" cy="250" r="145" />
+
+                     <!-- Сектора -->
+                     <g id="sectors"></g>
+
+                     <!-- Круг 5 -->
+                     <circle id="wheel__bg-5" cx="250" cy="250" r="80" />
+
+                     <!-- Круг 4 -->
+                     <circle id="wheel__bg-4" cx="250" cy="250" r="60" />
+
+                     <!-- Круг 3 -->
+                     <circle id="wheel__bg-3" cx="250" cy="250" r="40" />
+
+                  </svg>
+
+               </div>
+
+               <div class="timer"><span id="time">00:00</span></div>
+
+               <div id="persons">
+                  <ul id="personList" class="persons-list"></ul>
+                  <div class="footer">
+                     <div id="btnPlus" class="button-plus">ИГРАТЬ</div>
+                  </div>
+               </div>
+
+            </div>
+
+
+         </div>
+      </div>
+   </div>
+
+   <script type="module" src="/src/main.ts"></script>
+
+</body>
+
+</html>
