@@ -160,9 +160,9 @@ export default class FortuneWheel implements IFortuneWheel {
    };
 
    // 
-   private updateArc(arc: TArc, len: number): TArc {
-      return arc;
-   };
+   // private updateArc(arc: TArc, len: number): TArc {
+   //    return arc;
+   // };
 
 };
 

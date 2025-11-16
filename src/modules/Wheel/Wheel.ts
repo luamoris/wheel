@@ -5,11 +5,11 @@
 ============================================ */
 
 // ----- Типы
-import type { TCircle, TSize } from "../$extra/types";
+import type { TCircle } from "../$extra/types";
 import type { TSector, TSectorAction } from "./extra/types";
 
 // ----- Интерфейсы
-import type ISector from "../Sector/ISector";
+// import type ISector from "../Sector/ISector";
 import type IWheel from "./IWheel";
 
 // ----- Внутрение модули
@@ -20,21 +20,21 @@ export default class Wheel implements IWheel {
 
    private box: SVGElement;
    private boxSet: SVGGElement;
-   private size: TSize;
+   // private size: TSize;
    private circle: TCircle;
    private sectors: TSector[] = [];
 
    constructor(box: SVGElement) {
       this.box = box;
       this.boxSet = this.box.querySelector('#sectors') as SVGGElement;
-      this.size = {
-         width: 500,
-         height: 500,
-      };
+      // this.size = {
+      //    width: 500,
+      //    height: 500,
+      // };
       this.circle = {
          cx: 250,
          cy: 250,
-         r: 210,
+         r: 230,
       }
    };
 

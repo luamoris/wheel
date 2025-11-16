@@ -137,28 +137,39 @@ export function createPersonElement({ color, id, onAdd }: AddPersonOptions): Per
 
    tikets.append(tiketsTitle, tiketsCount);
 
+   const input = document.createElement("input");
+   input.type = "number";
+   input.name = `user-${id}`;
+   input.id = `user-${id}`;
+   input.min = "0";
+   input.max = "10";
+   input.value = "0";
+
    const addButton = document.createElement("div");
    addButton.classList.add("button-add");
    addButton.textContent = "+";
 
    // Собираем структуру
-   li.append(colorDiv, label, tikets, addButton);
+   li.append(colorDiv, label, tikets, input, addButton);
 
    // Обработчик нажатия кнопки
    addButton.addEventListener("click", () => {
+      const value = parseInt(input.value) || 0;
+      if (value > 0) {
+         const current = parseInt(tiketsCount.textContent || "0");
+         const newCount = current + value;
+         tiketsCount.textContent = String(newCount);
+         input.value = "0";
+         onAdd(value, id); // вызываем коллбэк
 
-      const current = parseInt(tiketsCount.textContent || "0");
-      const newCount = current + 1;
-      tiketsCount.textContent = String(newCount);
-      onAdd(1, id); // вызываем коллбэк
+         addButton.style.pointerEvents = "none";
+         addButton.classList.add("disabled");
 
-      addButton.style.pointerEvents = "none";
-      addButton.classList.add("disabled");
-
-      setTimeout(() => {
-         addButton.style.pointerEvents = "";
-         addButton.classList.remove("disabled");
-      }, 600);
+         setTimeout(() => {
+            addButton.style.pointerEvents = "";
+            addButton.classList.remove("disabled");
+         }, 600);
+      }
    });
 
    // Возвращаем сам элемент и функцию для смены цвета
